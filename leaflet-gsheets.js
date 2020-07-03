@@ -183,14 +183,14 @@ function addPoints(data) {
       }
     });
     
-function applyFilter() {
-  var x = document.getElementById("myDIV");
-  if (x.innerHTML === "Hello") {
-    x.innerHTML = "Swapped text!";
-  } else {
-    x.innerHTML = "Hello";
-  }
-}
+// function applyFilter() {
+//   var x = document.getElementById("myDIV");
+//   if (x.innerHTML === "Hello") {
+//     x.innerHTML = "Swapped text!";
+//   } else {
+//     x.innerHTML = "Hello";
+//   }
+// }
     function applyFilter() 
      {
          var x = document.getElementById("radiusButton");
