@@ -182,11 +182,12 @@ function addPoints(data) {
         sidebar.open(panelID);
       }
     });
-        function radiusFilter() 
-        {
-            if (this.value=="50km Radius Filter") this.value = "No Radius Filter";
-            else this.value = "50km Radius Filter";
-        }
+    
+    function radiusFilter(this) 
+     {
+          if (this.value=="50km Radius Filter") this.value = "No Radius Filter";
+          else this.value = "50km Radius Filter";
+     }
     // AwesomeMarkers is used to create fancier icons
     var icon = L.icon({
       iconUrl: "css/images/marker-icon.png",
