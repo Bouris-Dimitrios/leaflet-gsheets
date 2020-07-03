@@ -182,7 +182,7 @@ function addPoints(data) {
         sidebar.open(panelID);
       }
     });
-        function showCloseMarkers() 
+        function radiusFilter() 
         {
             if (this.value=="50km Radius Filter") this.value = "No Radius Filter";
             else this.value = "50km Radius Filter";
