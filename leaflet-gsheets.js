@@ -183,6 +183,7 @@ function addPoints(data) {
       }
     });
     
+     document.getElementById ("btnsave").addEventListener ("click", radiusFilter, false);
     function radiusFilter(this) 
      {
           if (this.value=="50km Radius Filter") this.value = "No Radius Filter";
