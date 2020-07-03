@@ -208,4 +208,19 @@ function getColor(type) {
   default:
     return "green";
   }
+  var filterCircle = L.circle(L.latLng(40, -75), RADIUS, {
+    opacity: 1,
+    weight: 1,
+    fillOpacity: 0.4
+}).addTo(map);
+  var RADIUS = 500000;
+  
+  map.on('mousemove', function(e) {
+    filterCircle.setLatLng(e.latlng);
+    csvLayer.setFilter(function showAirport(feature) {
+        return e.latlng.distanceTo(L.latLng(
+                feature.geometry.coordinates[1],
+                feature.geometry.coordinates[0])) < RADIUS;
+    });
+});
 }
