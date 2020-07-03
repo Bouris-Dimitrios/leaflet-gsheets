@@ -183,11 +183,11 @@ function addPoints(data) {
       }
     });
     
-     document.getElementById ("radiusButton").addEventListener ("click", radiusFilter, false);
+     var btn = document.getElementById ("radiusButton").addEventListener ("click", radiusFilter, false);
     function radiusFilter() 
      {
-          if (this.value=="50km Radius Filter") this.value = "No Radius Filter";
-          else this.value = "50km Radius Filter";
+          if (btn.value=="50km Radius Filter") btn.value = "No Radius Filter";
+          else btn.value = "50km Radius Filter";
      }
     // AwesomeMarkers is used to create fancier icons
     var icon = L.icon({
