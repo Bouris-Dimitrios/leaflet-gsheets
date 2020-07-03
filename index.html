@@ -23,6 +23,13 @@
             word-break: break-word;
             margin-right: 40px;
         }
+      #radiusButton {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              padding: 10px;
+              z-index: 400;
+    }
     </style>
 </head>
 <body>
@@ -32,14 +39,8 @@
     <script src="js/leaflet.awesome-markers.min.js"></script>
     <script src="js/tabletop.min.js"></script>
     <script src="leaflet-gsheets.js"></script>
-<div class="leaflet-top leaflet-center">
-    <style type="text/css">
-#my_centered_buttons { display: flex; justify-content: center; }
-</style>
-           <label class="switch">
-                <input type="checkbox">
-                  <span class="slider round"></span>
-            </label>
-    </div>
+<div>
+     <button id="refreshButton">Refresh Button</button>
+</div>
 </body>
 </html>
