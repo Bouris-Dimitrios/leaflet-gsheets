@@ -203,7 +203,7 @@ var stateChangingButton = L.easyButton({
     }]
 });
 
-stateChangingButton.addTo( YOUR_LEAFLET_MAP );
+stateChangingButton.addTo( map );
     
     
     // AwesomeMarkers is used to create fancier icons
