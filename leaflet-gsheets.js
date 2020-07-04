@@ -201,7 +201,7 @@ var stateChangingButton = L.easyButton({
                         feature.geometry.coordinates[1],
                         feature.geometry.coordinates[0])) < 50;
               
-              });)
+              }););
             }
         }, {
             stateName: 'markers-on-radius',
