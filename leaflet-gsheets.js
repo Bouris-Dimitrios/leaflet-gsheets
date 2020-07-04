@@ -198,7 +198,7 @@ var stateChangingButton = L.easyButton({
 //                 map.setView([46.25,-121.8],10);
                  btn.state('markers-on-radius');    // change state on click!
               map.removeLayer(pointGroupLayer);
-              caliPointsGroupLayer = L.layerGroup().addTo(map);
+              map.addLayer(caliPointsGroupLayer);
             }
         }, {
             stateName: 'markers-on-radius',
