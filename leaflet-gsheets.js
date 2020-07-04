@@ -202,8 +202,9 @@ var stateChangingButton = L.easyButton({
             icon:      'fa-university',
             title:     'zoom to a school',
             onClick: function(btn, map) {
-                map.setView([42.3748204,-71.1161913],16);
-                btn.state('zoom-to-forest');
+//                 map.setView([42.3748204,-71.1161913],16);
+//                 btn.state('zoom-to-forest');
+               marker.addTo(pointGroupLayer);
             }
     }]
 });
