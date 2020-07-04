@@ -183,9 +183,9 @@ function addPoints(data) {
       }
     });
     
-L.easyButton('<img src="/path/to/img/of/penguin.png">', function(btn, map){
+L.easyButton('<img src="/path/to/img/of/penguin.png">', function(btn, myMap){
     var antarctica = [-77,70];
-    map.setView(antarctica);
+    myMap.setView(antarctica);
 }).addTo( map );
     
     
