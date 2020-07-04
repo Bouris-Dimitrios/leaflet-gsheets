@@ -183,10 +183,27 @@ function addPoints(data) {
       }
     });
     
-L.easyButton('<img src="/path/to/img/of/penguin.png">', function(btn, myMap){
-    var antarctica = [-77,70];
-    myMap.setView(antarctica);
-}).addTo( map );
+var stateChangingButton = L.easyButton({
+    states: [{
+            stateName: 'zoom-to-forest',        // name the state
+            icon:      'fa-tree',               // and define its properties
+            title:     'zoom to a forest',      // like its title
+            onClick: function(btn, map) {       // and its callback
+                map.setView([46.25,-121.8],10);
+                btn.state('zoom-to-school');    // change state on click!
+            }
+        }, {
+            stateName: 'zoom-to-school',
+            icon:      'fa-university',
+            title:     'zoom to a school',
+            onClick: function(btn, map) {
+                map.setView([42.3748204,-71.1161913],16);
+                btn.state('zoom-to-forest');
+            }
+    }]
+});
+
+stateChangingButton.addTo( YOUR_LEAFLET_MAP );
     
     
     // AwesomeMarkers is used to create fancier icons
