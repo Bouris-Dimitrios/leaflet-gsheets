@@ -186,7 +186,7 @@ function addPoints(data) {
       }
     });
     
- if(one ===1{
+ if(one ===1){
     L.easyButton('fa-globe', function(btn, map){
         helloPopup.setLatLng(map.getCenter()).openOn(map);
     }).addTo(map );
