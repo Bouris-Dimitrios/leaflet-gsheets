@@ -189,21 +189,21 @@ function addPoints(data) {
  if(one ===1){
 var stateChangingButton = L.easyButton({
     states: [{
-            stateName: 'zoom-to-forest',        // name the state
+            stateName: 'all-markers',        // name the state
             icon:      'fa-tree',               // and define its properties
-            title:     'zoom to a forest',      // like its title
+            title:     'Filter markers On Radius',      // like its title
             onClick: function(btn, map) {       // and its callback
 //                 map.setView([46.25,-121.8],10);
-                 btn.state('zoom-to-school');    // change state on click!
+                 btn.state('markers-on-radius');    // change state on click!
               map.removeLayer(pointGroupLayer);
             }
         }, {
-            stateName: 'zoom-to-school',
+            stateName: 'markers-on-radius',
             icon:      'fa-university',
-            title:     'zoom to a school',
+            title:     'Show All Markers',
             onClick: function(btn, map) {
 //                 map.setView([42.3748204,-71.1161913],16);
-                 btn.state('zoom-to-forest');
+                 btn.state('all-markers');
                map.addLayer(pointGroupLayer);
             }
     }]
