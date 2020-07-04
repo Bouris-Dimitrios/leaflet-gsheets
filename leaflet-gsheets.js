@@ -14,11 +14,9 @@ function init() {
     "https://docs.google.com/spreadsheets/d/1OqEug6uiO1UPnVlkSMmOuzlAxl5Fyqny5CNF1mFltG8/edit?usp=sharing";
   var pointsURL =
     "https://docs.google.com/spreadsheets/d/1Ecy6OLMxYHBfY9jloaxnhakzvVlqvGAQ37nc5CeqKFE/edit?usp=sharing";
-  var caliPointsUrl = "https://docs.google.com/spreadsheets/d/1GIJEJGzJeKwcppjZoP_mo7IAQJb9rEGXXvu4a8NIfjE/edit?usp=sharing"
   
   Tabletop.init({ key: polyURL, callback: addPolygons, simpleSheet: true });
   Tabletop.init({ key: pointsURL, callback: addPoints, simpleSheet: true }); // simpleSheet assumes there is only one table and automatically sends its data
-   Tabletop.init({ key: caliPointsUrl, callback: addCaliPoints, simpleSheet: true });
 }
 window.addEventListener("DOMContentLoaded", init);
 
@@ -230,70 +228,6 @@ stateChangingButton.addTo(map );
 }
 
 
-function addCaliPoints(data) {
-  if (caliPointsGroupLayer != null) {
-    caliPointsGroupLayer.remove();
-  }
-   caliPointsGroupLayer = L.layerGroup().addTo(map);
-   map.removeLayer(caliPointsGroupLayer);
-  // Choose marker type. Options are:
-  // (these are case-sensitive, defaults to marker!)
-  // marker: standard point with an icon
-  // circleMarker: a circle with a radius set in pixels
-  // circle: a circle with a radius set in meters
-  //var markerType = "marker";
-  var markerType = "marker";
-
-  // Marker radius
-  // Wil be in pixels for circleMarker, metres for circle
-  // Ignore for point
-  var markerRadius = 100;
-
-  for (var row = 0; row < data.length; row++) {
-    var marker;
-    if (markerType == "circleMarker") {
-      marker = L.circleMarker([data[row].lat, data[row].lon], {radius: markerRadius});
-    } else if (markerType == "circle") {
-      marker = L.circle([data[row].lat, data[row].lon], {radius: markerRadius});
-    } else {
-      marker = L.marker([data[row].lat, data[row].lon]);
-    }
-    marker.addTo(caliPointsGroupLayer);
-
-    // UNCOMMENT THIS LINE TO USE POPUPS
-    //marker.bindPopup('<h2>' + data[row].location + '</h2>There's a ' + data[row].level + ' ' + data[row].category + ' here');
-
-    // COMMENT THE NEXT 14 LINES TO DISABLE SIDEBAR FOR THE MARKERS
-    marker.feature = {
-      properties: {
-        location: data[row].location,
-        category: data[row].category
-      }
-    };
-    marker.on({
-      click: function(e) {
-        L.DomEvent.stopPropagation(e);
-        document.getElementById("sidebar-title").innerHTML =
-          e.target.feature.properties.location;
-        document.getElementById("sidebar-content").innerHTML =
-          e.target.feature.properties.category;
-        sidebar.open(panelID);
-      }
-    });
-    
-    // AwesomeMarkers is used to create fancier icons
-    var icon = L.icon({
-      iconUrl: "css/images/marker-icon.png",
-      iconColor: "white",
-      markerColor: getColor(data[row].category),
-      prefix: "glyphicon",
-      extraClasses: "fa-rotate-0"
-    });
-    if (!markerType.includes("circle")) {
-      marker.setIcon(icon);
-    }
-  }
-}
 // Returns different colors depending on the string passed
 // Used for the points layer
 function getColor(type) {
