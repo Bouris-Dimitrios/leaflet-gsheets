@@ -129,7 +129,27 @@ function addPolygons(data) {
     style: polygonStyle
   }).addTo(map);
 }
+var stateChangingButton = L.easyButton({
+    states: [{
+            stateName: 'zoom-to-forest',        // name the state
+            icon:      'fa-tree',               // and define its properties
+            title:     'zoom to a forest',      // like its title
+            onClick: function(btn, map) {       // and its callback
+                map.setView([46.25,-121.8],10);
+                btn.state('zoom-to-school');    // change state on click!
+            }
+        }, {
+            stateName: 'zoom-to-school',
+            icon:      'fa-university',
+            title:     'zoom to a school',
+            onClick: function(btn, map) {
+                map.setView([42.3748204,-71.1161913],16);
+                btn.state('zoom-to-forest');
+            }
+    }]
+});
 
+stateChangingButton.addTo( map );
 // addPoints is a bit simpler, as no GeoJSON is needed for the points
 // It does the same check to overwrite the existing points layer once the Google Sheets data comes along
 function addPoints(data) {
@@ -198,27 +218,7 @@ function addPoints(data) {
     }
   }
 }
-var stateChangingButton = L.easyButton({
-    states: [{
-            stateName: 'zoom-to-forest',        // name the state
-            icon:      'fa-tree',               // and define its properties
-            title:     'zoom to a forest',      // like its title
-            onClick: function(btn, map) {       // and its callback
-                map.setView([46.25,-121.8],10);
-                btn.state('zoom-to-school');    // change state on click!
-            }
-        }, {
-            stateName: 'zoom-to-school',
-            icon:      'fa-university',
-            title:     'zoom to a school',
-            onClick: function(btn, map) {
-                map.setView([42.3748204,-71.1161913],16);
-                btn.state('zoom-to-forest');
-            }
-    }]
-});
 
- stateChangingButton.addTo( map );
 // Returns different colors depending on the string passed
 // Used for the points layer
 function getColor(type) {
