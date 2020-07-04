@@ -18,7 +18,7 @@ function init() {
   
   Tabletop.init({ key: polyURL, callback: addPolygons, simpleSheet: true });
   Tabletop.init({ key: pointsURL, callback: addPoints, simpleSheet: true }); // simpleSheet assumes there is only one table and automatically sends its data
-   Tabletop.init({ key: caliPointsUrl, callback: addCaLiPoints, simpleSheet: true });
+   Tabletop.init({ key: caliPointsUrl, callback: addCaliPoints, simpleSheet: true });
 }
 window.addEventListener("DOMContentLoaded", init);
 
