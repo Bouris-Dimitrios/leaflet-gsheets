@@ -196,6 +196,12 @@ var stateChangingButton = L.easyButton({
 //                 map.setView([46.25,-121.8],10);
                  btn.state('markers-on-radius');    // change state on click!
               map.removeLayer(pointGroupLayer);
+              map.addLayer = csvLayer.setFilter(function showAirport(feature) {
+                return e.latlng.distanceTo(L.latLng(
+                        feature.geometry.coordinates[1],
+                        feature.geometry.coordinates[0])) < 50;
+              }
+    });
             }
         }, {
             stateName: 'markers-on-radius',
