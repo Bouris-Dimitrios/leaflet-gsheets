@@ -193,8 +193,9 @@ var stateChangingButton = L.easyButton({
             icon:      'fa-tree',               // and define its properties
             title:     'zoom to a forest',      // like its title
             onClick: function(btn, map) {       // and its callback
-                map.setView([46.25,-121.8],10);
-                btn.state('zoom-to-school');    // change state on click!
+//                 map.setView([46.25,-121.8],10);
+//                 btn.state('zoom-to-school');    // change state on click!
+              map.removeLayer(pointGroupLayer);
             }
         }, {
             stateName: 'zoom-to-school',
