@@ -194,7 +194,7 @@ var stateChangingButton = L.easyButton({
             title:     'zoom to a forest',      // like its title
             onClick: function(btn, map) {       // and its callback
 //                 map.setView([46.25,-121.8],10);
-//                 btn.state('zoom-to-school');    // change state on click!
+                 btn.state('zoom-to-school');    // change state on click!
               map.removeLayer(pointGroupLayer);
             }
         }, {
@@ -203,7 +203,7 @@ var stateChangingButton = L.easyButton({
             title:     'zoom to a school',
             onClick: function(btn, map) {
 //                 map.setView([42.3748204,-71.1161913],16);
-//                 btn.state('zoom-to-forest');
+                 btn.state('zoom-to-forest');
                map.addLayer(pointGroupLayer);
             }
     }]
