@@ -204,7 +204,7 @@ var stateChangingButton = L.easyButton({
             onClick: function(btn, map) {
 //                 map.setView([42.3748204,-71.1161913],16);
 //                 btn.state('zoom-to-forest');
-               marker.addTo(pointGroupLayer);
+               map.addLayer(pointGroupLayer);
             }
     }]
 });
