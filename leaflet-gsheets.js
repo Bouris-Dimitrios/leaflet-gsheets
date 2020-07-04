@@ -235,7 +235,7 @@ function addCaliPoints(data) {
     caliPointsGroupLayer.remove();
   }
    caliPointsGroupLayer = L.layerGroup().addTo(map);
-
+   map.removeLayer(caliPointsGroupLayer);
   // Choose marker type. Options are:
   // (these are case-sensitive, defaults to marker!)
   // marker: standard point with an icon
