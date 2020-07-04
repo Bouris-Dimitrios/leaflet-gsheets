@@ -192,7 +192,7 @@ function addPoints(data) {
 var stateChangingButton = L.easyButton({
     states: [{
             stateName: 'all-markers',        // name the state
-            icon:      '<strong>Cali</strong>',               // and define its properties
+            icon:      '<strong>CaliFornia Markers</strong>',               // and define its properties
             title:     'Show Markers on California',      // like its title
             onClick: function(btn, map) {       // and its callback
 //                 map.setView([46.25,-121.8],10);
@@ -202,7 +202,7 @@ var stateChangingButton = L.easyButton({
             }
         }, {
             stateName: 'markers-on-radius',
-            icon:      'fa-university',
+            icon:      '<strong>All Markers</strong>',
             title:     'Show All Markers',
             onClick: function(btn, map) {
 //                 map.setView([42.3748204,-71.1161913],16);
