@@ -59,7 +59,7 @@ map.on("click", function() {
 // These are declared outisde the functions so that the functions can check if they already exist
 var polygonLayer;
 var pointGroupLayer;
-var caliPointsGroupLayer;
+
 // The form of data must be a JSON representation of a table as returned by Tabletop.js
 // addPolygons first checks if the map layer has already been assigned, and if so, deletes it and makes a fresh one
 // The assumption is that the locally stored JSONs will load before Tabletop.js can pull the external data from Google Sheets
@@ -190,13 +190,12 @@ function addPoints(data) {
 var stateChangingButton = L.easyButton({
     states: [{
             stateName: 'all-markers',        // name the state
-            icon:      '<strong>CA</strong>',               // and define its properties
-            title:     'Show Markers on California',      // like its title
+            icon:      '<strong>TE</strong>',               // and define its properties
+            title:     'Show Markers on Outside Of Texas',      // like its title
             onClick: function(btn, map) {       // and its callback
 //                 map.setView([46.25,-121.8],10);
                  btn.state('markers-on-radius');    // change state on click!
               map.removeLayer(pointGroupLayer);
-              map.addLayer(caliPointsGroupLayer);
             }
         }, {
             stateName: 'markers-on-radius',
