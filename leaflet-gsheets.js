@@ -183,11 +183,12 @@ function addPoints(data) {
       }
     });
     
-var helloPopup = L.popup().setContent('Hello World!');
-
-L.easyButton('fa-globe', function(btn, map){
-    helloPopup.setLatLng(map.getCenter()).openOn(map);
-}).addTo(map );
+L.easyButton('<img src="/path/to/img/of/penguin.png">', function(btn, map){
+    var antarctica = [-77,70];
+    map.setView(antarctica);
+}).addTo( map );
+    
+    
     // AwesomeMarkers is used to create fancier icons
     var icon = L.icon({
       iconUrl: "css/images/marker-icon.png",
