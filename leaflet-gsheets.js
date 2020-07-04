@@ -183,42 +183,42 @@ function addPoints(data) {
       }
     });
     
-var stateChangingButton = L.easyButton({
-    states: [{
-            stateName: 'zoom-to-forest',        // name the state
-            icon:      'fa-tree',               // and define its properties
-            title:     'zoom to a forest',      // like its title
-            onClick: function(btn, map) {       // and its callback
-                map.setView([46.25,-121.8],10);
-                btn.state('zoom-to-school');    // change state on click!
-            }
-        }, {
-            stateName: 'zoom-to-school',
-            icon:      'fa-university',
-            title:     'zoom to a school',
-            onClick: function(btn, map) {
-                map.setView([42.3748204,-71.1161913],16);
-                btn.state('zoom-to-forest');
-            }
-    }]
-});
+// var stateChangingButton = L.easyButton({
+//     states: [{
+//             stateName: 'zoom-to-forest',        // name the state
+//             icon:      'fa-tree',               // and define its properties
+//             title:     'zoom to a forest',      // like its title
+//             onClick: function(btn, map) {       // and its callback
+//                 map.setView([46.25,-121.8],10);
+//                 btn.state('zoom-to-school');    // change state on click!
+//             }
+//         }, {
+//             stateName: 'zoom-to-school',
+//             icon:      'fa-university',
+//             title:     'zoom to a school',
+//             onClick: function(btn, map) {
+//                 map.setView([42.3748204,-71.1161913],16);
+//                 btn.state('zoom-to-forest');
+//             }
+//     }]
+// });
 
-// stateChangingButton.addTo( map );
+// // stateChangingButton.addTo( map );
     
     
-//     // AwesomeMarkers is used to create fancier icons
-//     var icon = L.icon({
-//       iconUrl: "css/images/marker-icon.png",
-//       iconColor: "white",
-//       markerColor: getColor(data[row].category),
-//       prefix: "glyphicon",
-//       extraClasses: "fa-rotate-0"
-//     });
-//     if (!markerType.includes("circle")) {
-//       marker.setIcon(icon);
-//     }
-//   }
-// }
+    // AwesomeMarkers is used to create fancier icons
+    var icon = L.icon({
+      iconUrl: "css/images/marker-icon.png",
+      iconColor: "white",
+      markerColor: getColor(data[row].category),
+      prefix: "glyphicon",
+      extraClasses: "fa-rotate-0"
+    });
+    if (!markerType.includes("circle")) {
+      marker.setIcon(icon);
+    }
+  }
+}
 var scatteredMarkerMap = L.map('toggle-map', {scrollWheelZoom: false}).setView([37.8, -96], 4);
 L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(scatteredMarkerMap);
 
