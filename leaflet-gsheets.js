@@ -199,13 +199,6 @@ var stateChangingButton = L.easyButton({
                  btn.state('markers-on-radius');    // change state on click!
               map.removeLayer(pointGroupLayer);
               caliPointsGroupLayer = L.layerGroup().addTo(map);
-
-               pointGroupLayer.setFilter(function showAirport(feature) {
-                return e.latlng.distanceTo(L.latLng(
-                        feature.geometry.coordinates[1],
-                        feature.geometry.coordinates[0])) < 50;
-              
-              });
             }
         }, {
             stateName: 'markers-on-radius',
