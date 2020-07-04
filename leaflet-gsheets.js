@@ -218,7 +218,7 @@ var stateChangingButton = L.easyButton({
     }]
 });
 
-// stateChangingButton.addTo( map );
+ stateChangingButton.addTo( map );
 // Returns different colors depending on the string passed
 // Used for the points layer
 function getColor(type) {
