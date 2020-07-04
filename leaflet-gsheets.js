@@ -183,20 +183,11 @@ function addPoints(data) {
       }
     });
     
-// function applyFilter() {
-//   var x = document.getElementById("myDIV");
-//   if (x.innerHTML === "Hello") {
-//     x.innerHTML = "Swapped text!";
-//   } else {
-//     x.innerHTML = "Hello";
-//   }
-// }
-    function applyFilter() 
-     {
-         var x = document.getElementById("radiusButton");
-          if (x.innerHTML==="50km Radius Filter") x.innerHTML = "No Radius Filter";
-          else  x.innerHTML  = "50km Radius Filter";
-     }
+var helloPopup = L.popup().setContent('Hello World!');
+
+L.easyButton('fa-globe', function(btn, map){
+    helloPopup.setLatLng(map.getCenter()).openOn(map);
+}).addTo(map );
     // AwesomeMarkers is used to create fancier icons
     var icon = L.icon({
       iconUrl: "css/images/marker-icon.png",
