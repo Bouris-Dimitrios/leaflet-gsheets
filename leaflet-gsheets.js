@@ -203,23 +203,49 @@ var stateChangingButton = L.easyButton({
     }]
 });
 
-stateChangingButton.addTo( map );
+// stateChangingButton.addTo( map );
     
     
-    // AwesomeMarkers is used to create fancier icons
-    var icon = L.icon({
-      iconUrl: "css/images/marker-icon.png",
-      iconColor: "white",
-      markerColor: getColor(data[row].category),
-      prefix: "glyphicon",
-      extraClasses: "fa-rotate-0"
-    });
-    if (!markerType.includes("circle")) {
-      marker.setIcon(icon);
-    }
-  }
-}
+//     // AwesomeMarkers is used to create fancier icons
+//     var icon = L.icon({
+//       iconUrl: "css/images/marker-icon.png",
+//       iconColor: "white",
+//       markerColor: getColor(data[row].category),
+//       prefix: "glyphicon",
+//       extraClasses: "fa-rotate-0"
+//     });
+//     if (!markerType.includes("circle")) {
+//       marker.setIcon(icon);
+//     }
+//   }
+// }
+var scatteredMarkerMap = L.map('toggle-map', {scrollWheelZoom: false}).setView([37.8, -96], 4);
+L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(scatteredMarkerMap);
 
+var markerGroup = L.layerGroup([
+      L.marker([37.8, -91]), L.marker([38.8, -86]), L.marker([47.8, -106]),
+      L.marker([31.8, -90]), L.marker([39.8, -96]), L.marker([33.8, -100]) ]);
+
+var toggle = L.easyButton({
+  states: [{
+    stateName: 'add-markers',
+    icon: 'fa-map-marker',
+    title: 'add random markers',
+    onClick: function(control) {
+      scatteredMarkerMap.addLayer(markerGroup);
+      control.state('remove-markers');
+    }
+  }, {
+    icon: 'fa-undo',
+    stateName: 'remove-markers',
+    onClick: function(control) {
+      scatteredMarkerMap.removeLayer(markerGroup);
+      control.state('add-markers');
+    },
+    title: 'remove markers'
+  }]
+});
+toggle.addTo(scatteredMarkerMap);
 // Returns different colors depending on the string passed
 // Used for the points layer
 function getColor(type) {
