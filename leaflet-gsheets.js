@@ -245,7 +245,7 @@ var toggle = L.easyButton({
     title: 'remove markers'
   }]
 });
-toggle.addTo(scatteredMarkerMap);
+toggle.addTo(map);
 // Returns different colors depending on the string passed
 // Used for the points layer
 function getColor(type) {
