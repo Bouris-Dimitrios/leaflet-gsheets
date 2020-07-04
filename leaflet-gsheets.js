@@ -183,27 +183,6 @@ function addPoints(data) {
       }
     });
     
-// var stateChangingButton = L.easyButton({
-//     states: [{
-//             stateName: 'zoom-to-forest',        // name the state
-//             icon:      'fa-tree',               // and define its properties
-//             title:     'zoom to a forest',      // like its title
-//             onClick: function(btn, map) {       // and its callback
-//                 map.setView([46.25,-121.8],10);
-//                 btn.state('zoom-to-school');    // change state on click!
-//             }
-//         }, {
-//             stateName: 'zoom-to-school',
-//             icon:      'fa-university',
-//             title:     'zoom to a school',
-//             onClick: function(btn, map) {
-//                 map.setView([42.3748204,-71.1161913],16);
-//                 btn.state('zoom-to-forest');
-//             }
-//     }]
-// });
-
-// // stateChangingButton.addTo( map );
     
     
     // AwesomeMarkers is used to create fancier icons
@@ -219,33 +198,27 @@ function addPoints(data) {
     }
   }
 }
-var scatteredMarkerMap = L.map('toggle-map', {scrollWheelZoom: false}).setView([37.8, -96], 4);
-L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(scatteredMarkerMap);
-
-var markerGroup = L.layerGroup([
-      L.marker([37.8, -91]), L.marker([38.8, -86]), L.marker([47.8, -106]),
-      L.marker([31.8, -90]), L.marker([39.8, -96]), L.marker([33.8, -100]) ]);
-
-var toggle = L.easyButton({
-  states: [{
-    stateName: 'add-markers',
-    icon: 'fa-map-marker',
-    title: 'add random markers',
-    onClick: function(control) {
-      scatteredMarkerMap.addLayer(markerGroup);
-      control.state('remove-markers');
-    }
-  }, {
-    icon: 'fa-undo',
-    stateName: 'remove-markers',
-    onClick: function(control) {
-      scatteredMarkerMap.removeLayer(markerGroup);
-      control.state('add-markers');
-    },
-    title: 'remove markers'
-  }]
+var stateChangingButton = L.easyButton({
+    states: [{
+            stateName: 'zoom-to-forest',        // name the state
+            icon:      'fa-tree',               // and define its properties
+            title:     'zoom to a forest',      // like its title
+            onClick: function(btn, map) {       // and its callback
+                map.setView([46.25,-121.8],10);
+                btn.state('zoom-to-school');    // change state on click!
+            }
+        }, {
+            stateName: 'zoom-to-school',
+            icon:      'fa-university',
+            title:     'zoom to a school',
+            onClick: function(btn, map) {
+                map.setView([42.3748204,-71.1161913],16);
+                btn.state('zoom-to-forest');
+            }
+    }]
 });
-toggle.addTo(map);
+
+// stateChangingButton.addTo( map );
 // Returns different colors depending on the string passed
 // Used for the points layer
 function getColor(type) {
