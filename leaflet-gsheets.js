@@ -234,7 +234,7 @@ function addCaliPoints(data) {
   if (caliPointsGroupLayer != null) {
     caliPointsGroupLayer.remove();
   }
-//   caliPointsGroupLayer = L.layerGroup().addTo(map);
+   caliPointsGroupLayer = L.layerGroup().addTo(map);
 
   // Choose marker type. Options are:
   // (these are case-sensitive, defaults to marker!)
@@ -258,7 +258,7 @@ function addCaliPoints(data) {
     } else {
       marker = L.marker([data[row].lat, data[row].lon]);
     }
-    marker.addTo(pointGroupLayer);
+    marker.addTo(caliPointsGroupLayer);
 
     // UNCOMMENT THIS LINE TO USE POPUPS
     //marker.bindPopup('<h2>' + data[row].location + '</h2>There's a ' + data[row].level + ' ' + data[row].category + ' here');
