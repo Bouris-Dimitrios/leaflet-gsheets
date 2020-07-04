@@ -131,9 +131,6 @@ function addPolygons(data) {
 }
 var helloPopup = L.popup().setContent('Hello World!');
 
-L.easyButton('fa-globe', function(btn, map){
-    helloPopup.setLatLng(map.getCenter()).openOn(map);
-}).addTo(map );
 
 // addPoints is a bit simpler, as no GeoJSON is needed for the points
 // It does the same check to overwrite the existing points layer once the Google Sheets data comes along
@@ -189,6 +186,9 @@ function addPoints(data) {
     });
     
     
+L.easyButton('fa-globe', function(btn, map){
+    helloPopup.setLatLng(map.getCenter()).openOn(map);
+}).addTo(map );
     
     // AwesomeMarkers is used to create fancier icons
     var icon = L.icon({
